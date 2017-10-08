@@ -226,10 +226,13 @@ class Client(Shared):
 		await handler.send(handler._base.exchange_routes, META_ROUTE)
 
 
-	async def client(self, address, port):
-		async with connect("ws://%s:%i" % (address, port)) as websocket:
+	async def client(self, address, port, wss):
+		async with connect("ws%s://%s:%i" % ("s" if wss else "", 
+			address, port)) as websocket:
+			
 			await self.consumer(websocket)
 
 
-	def start(self, address, port):
-		get_event_loop().run_until_complete(self.client(address, port))
+	def start(self, address, port, wss=False):
+		get_event_loop().run_until_complete(self.client(
+			address, port, wss))
