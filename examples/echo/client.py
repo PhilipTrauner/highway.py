@@ -1,20 +1,18 @@
-from highway import Client, Route
+from highway import Client
+from highway import Handler as Handler_
 
 
-class Handler(Client):
-	def __init__(self, url, routes, debug=False):
-		super().__init__(url, routes, debug=debug)
+class Handler(Handler_):
+	def __init__(self, websocket, base):
+		super().__init__(websocket, base)
 
 
-class Echo(Route):
-	def run(self, data, handler):
-		handler.send(data, "echo")
+client = Client(Handler, debug=True)
 
 
-ws = Handler("ws://127.0.0.1:8500", routes={"echo" : Echo()}, debug=True)
-ws.connect()
+@client.route("echo")
+async def echo(data, handler):
+	await handler.send(data, "echo")
 
-try:
-	ws.run_forever()
-except KeyboardInterrupt:
-	ws.close()
+
+client.start("localhost", 1337)
