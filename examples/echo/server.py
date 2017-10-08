@@ -7,7 +7,7 @@ class Handler(Handler_):
 	def __init__(self, websocket, server):
 		super().__init__(websocket, server)
 
-	async def on_open(self):
+	async def on_ready(self):
 		# String
 		await self.send("text", "echo")
 		# Bytes
