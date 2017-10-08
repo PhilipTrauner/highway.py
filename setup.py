@@ -21,7 +21,7 @@ preserving* network protocol framework built on top of *WebSockets*. It facilita
 
 setup(
 	name="highway.py",
-	version="0.2.0",
+	version="0.2.1",
 	author="Philip Trauner",
 	author_email="philip.trauner@arztpraxis.io",
 	url="https://github.com/PhilipTrauner/highway.py",
