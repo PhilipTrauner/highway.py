@@ -72,7 +72,7 @@ def print_out(message, color, file):
 		except KeyError:
 			module = getmodule(stack_[2][0]).__name__
 			CACHED_MODULES[stack_[2][0].f_code] = module
-	print("\033[94m%s\033[0m:%i → %s%s\033[0m" % (
+	print("\033[32m%s\033[0m:%i → %s%s\033[0m" % (
 		module, stack_[2][0].f_lineno, color, 
 		message), file=file)
 	file.flush()
@@ -104,8 +104,3 @@ if __name__ == "__main__":
 	warning("This is a warning")    # > stderr
 	error("This is an error")       # > stderr
 	success("Great success!")
-	
-
-
-
-
