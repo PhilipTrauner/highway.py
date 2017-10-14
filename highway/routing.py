@@ -58,4 +58,4 @@ async def meta_route(data, handler):
 			await handler.on_ready()	
 	else:
 		logging.error("Received invalid exchange routes.")
-		handler.close(reason="Invalid exchange routes")
+		await handler.close(reason="Invalid exchange routes")
