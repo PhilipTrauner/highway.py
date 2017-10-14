@@ -1,5 +1,3 @@
-from enum import Enum
-
 code = "code"
 reason = "reason"
 
