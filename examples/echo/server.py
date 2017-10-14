@@ -15,7 +15,7 @@ class Handler(Handler_):
 		# Integer
 		await self.send(1, "echo")
 		# Float
-		await self.send(1.0, "echo")
+		await self.send(1.1, "echo")
 		# Boolean
 		await self.send(True, "echo")
 		# None Type
